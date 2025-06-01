@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include expense_requisition_app *.css
+recursive-include expense_requisition_app *.csv
+recursive-include expense_requisition_app *.html
+recursive-include expense_requisition_app *.ico
+recursive-include expense_requisition_app *.js
+recursive-include expense_requisition_app *.json
+recursive-include expense_requisition_app *.md
+recursive-include expense_requisition_app *.png
+recursive-include expense_requisition_app *.py
+recursive-include expense_requisition_app *.svg
+recursive-include expense_requisition_app *.txt
+recursive-exclude expense_requisition_app *.pyc

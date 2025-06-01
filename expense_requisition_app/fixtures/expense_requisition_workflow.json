@@ -1,0 +1,96 @@
+{
+ "workflow_name": "Expense Requisition Workflow",
+ "doctype": "Workflow",
+ "document_type": "Expense Requisition",
+ "is_active": 1,
+ "workflow_state_field": "workflow_state",
+ "states": [
+  {
+   "state": "Draft",
+   "allow_edit": "Employee",
+   "doc_status": 0
+  },
+  {
+   "state": "Submitted",
+   "allow_edit": "Expense Manager",
+   "doc_status": 1
+  },
+  {
+   "state": "Manager Approved",
+   "allow_edit": "Finance Approver",
+   "doc_status": 1
+  },
+  {
+   "state": "Finance Approved",
+   "allow_edit": "Finance Approver",
+   "doc_status": 1
+  },
+  {
+   "state": "Paid",
+   "allow_edit": "",
+   "doc_status": 1
+  },
+  {
+   "state": "Rejected",
+   "allow_edit": "Employee",
+   "doc_status": 2
+  },
+  {
+   "state": "Cancelled",
+   "allow_edit": "",
+   "doc_status": 2
+  }
+ ],
+ "transitions": [
+  {
+   "state": "Draft",
+   "action": "Submit",
+   "next_state": "Submitted",
+   "allowed": "Employee",
+   "allow_self_approval": 0
+  },
+  {
+   "state": "Submitted",
+   "action": "Approve",
+   "next_state": "Manager Approved",
+   "allowed": "Expense Manager",
+   "allow_self_approval": 0
+  },
+  {
+   "state": "Submitted",
+   "action": "Reject",
+   "next_state": "Rejected",
+   "allowed": "Expense Manager",
+   "allow_self_approval": 0
+  },
+  {
+   "state": "Manager Approved",
+   "action": "Approve",
+   "next_state": "Finance Approved",
+   "allowed": "Finance Approver",
+   "allow_self_approval": 0
+  },
+  {
+   "state": "Manager Approved",
+   "action": "Reject",
+   "next_state": "Rejected",
+   "allowed": "Finance Approver",
+   "allow_self_approval": 0
+  },
+  {
+   "state": "Finance Approved",
+   "action": "Mark as Paid",
+   "next_state": "Paid",
+   "allowed": "Finance Approver",
+   "allow_self_approval": 0
+  },
+   {
+   "state": "Rejected",
+   "action": "Amend",
+   "next_state": "Draft",
+   "allowed": "Employee",
+   "allow_self_approval": 1
+  }
+ ]
+}
+

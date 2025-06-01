@@ -1,0 +1,15 @@
+[
+ {
+  "doctype": "Role",
+  "role_name": "Expense Manager",
+  "desk_access": 1,
+  "is_custom": 1
+ },
+ {
+  "doctype": "Role",
+  "role_name": "Finance Approver",
+  "desk_access": 1,
+  "is_custom": 1
+ }
+]
+
